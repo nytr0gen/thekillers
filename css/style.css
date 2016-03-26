@@ -1,0 +1,140 @@
+@import url(http://fonts.googleapis.com/css?family=Vollkorn:400italic,400);
+@import url(http://fonts.googleapis.com/css?family=Dancing+Script:400,700);
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+*:first-of-type {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+body {
+  background: #151515 url(../images/bg.png) top center no-repeat;
+  font-family: 'Vollkorn', Georgia, 'Times New Roman', Times, serif;
+  font-size: 100%;
+  line-height: 1.4;
+  color: #aaa;
+}
+
+a {
+  color: #bbb;
+  text-decoration:none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.video {
+    text-align: center;
+}
+
+.meniu a {
+  font-size: 1.15em;
+  font-style: italic;
+  padding: 3px 5px;
+}
+
+.meniu a:hover {
+  color: #FF373D;
+  text-decoration: underline;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    /*display: none;*/
+    -webkit-transition: -webkit-transform 1s;
+    transition: transform 1s;
+    -webkit-transform: scale(0, 0) translate(0, -250px);
+    transform: scale(0, 0) translate(0, -250px);
+    position: absolute;
+    min-width: 200px;
+    z-index: 1;
+    background: #000;
+    color: #aaa;
+    border: 0.2em solid #000;
+    border-radius: 0.5em;
+    padding: 0.8em 0.9em 1em 1em;
+}
+
+.dropdown-content a {
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    -webkit-transform: scale(1, 1) translate(0, 0);
+    transform: scale(1, 1) translate(0, 0);
+}
+
+.header {
+    padding-top: 8px;
+    padding-bottom: 12px;
+}
+
+.title {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 4px;
+}
+
+.title > a {
+    font-family: 'Dancing Script', cursive;
+    /*font-style:italic;*/
+    font-size: 3em;
+    font-weight:700;
+    text-shadow:2px 2px 1px #000;
+    color:#FF373D;
+}
+
+.title > a:hover {
+    text-decoration: none;
+}
+
+.page {
+    background: #000;
+    color: #aaa;
+    border: 0.2em solid #000;
+    border-radius: 0.5em;
+    padding: 0.8em 0.9em 1em 1em;
+}
+
+.page--galerie {
+    text-align: center;
+}
+
+.treasure {
+    color:#FF373D;
+}
+
+.treasure > * {
+    color: inherit;
+}
+
+.wrap, .page {
+    margin: 0 auto;
+    max-width: 640px;
+}
+
+.header, .copyright {
+    margin: 0 auto;
+}
+
+.header {
+    text-align:center;
+}
+
+.copyright {
+    color: #888;
+    text-align: right;
+    margin-top: 8px;
+    font-size: 0.9em;
+}
