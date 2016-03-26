@@ -51,8 +51,8 @@ a:hover {
 
 .dropdown-content {
     /*display: none;*/
-    -webkit-transition: -webkit-transform 1s;
-    transition: transform 1s;
+    -webkit-transition: -webkit-transform .6s;
+    transition: transform .6s;
     -webkit-transform: scale(0, 0) translate(0, -250px);
     transform: scale(0, 0) translate(0, -250px);
     position: absolute;
