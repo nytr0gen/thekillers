@@ -1,6 +1,7 @@
 var DEFAULT_ROUTE = 'acasa';
 
 var $page = $('.page');
+var $pageAjax = $page.find('.page__ajax');
 var currentRoute = DEFAULT_ROUTE;
 
 $(window).bind('hashchange', function() {
@@ -20,29 +21,34 @@ $(window).bind('hashchange', function() {
 
     var scrollToID = hash.match(/#(.+)$/);
     if (scrollToID != null) {
-        scrollToID = scrollToID[1];
+        scrollToID = scrollToID[0];
     }
 
-    $page.removeClass('page--' + currentRoute)
+    $page.removeClass('page--ajax')
+        .removeClass('page--' + currentRoute)
         .addClass('page--loading');
 
     $.ajax('./pages/' + route + '.html')
         .done(function(data) {
-            // if exists show it
-            currentRoute = route;
+            setTimeout(function() {
+                // if exists show it
+                currentRoute = route;
 
-            $page.html(data)
-                .removeClass('page--loading')
-                .addClass('page--' + route);
+                $page.removeClass('page--loading')
+                    .addClass('page--ajax')
+                    .addClass('page--' + route);
 
-            if (scrollToID) {
-                var $scrollToID = $('#' + scrollToID);
-                if ($scrollToID.length == 1) {
-                    $('html, body').animate({
-                        scrollTop: $scrollToID.offset().top
-                    }, 400);
+                $pageAjax.html(data);
+
+                if (scrollToID) {
+                    var $scrollToID = $(scrollToID);
+                    if ($scrollToID.length == 1) {
+                        $('html, body').animate({
+                            scrollTop: $scrollToID.offset().top
+                        }, 400);
+                    }
                 }
-            }
+            }, 600);
         })
         .fail(function() {
             // if it doesnt exists show 404
@@ -50,14 +56,7 @@ $(window).bind('hashchange', function() {
 
             $page.removeClass('page--loading')
                 .addClass('page--404');
-        })
-        .always(function() {
-
         });
-
-
-    // TODO parse route, ajax through it.
-    // if empty show default page
 });
 
 $(window).trigger('hashchange');
